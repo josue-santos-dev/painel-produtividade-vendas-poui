@@ -1,0 +1,51 @@
+<po-page-dynamic-search
+  [p-actions]="actions"
+  [p-breadcrumb]="breadcrumb"
+  [p-filters]="filtroAvancado"
+  [p-literals]="estruturaFiltroAvancado"
+  [p-quick-search-width]="quickSearchWidth"
+  (p-quick-search)="onQuickSearch($event)"
+  (p-advanced-search)="realizaBuscaAvancada($event)"
+  (p-change-disclaimers)="clickDisclaimers($event)"
+  [p-concat-filters]="concatenarFiltros"
+  [p-keep-filters]="true"
+  [p-load]="onLoadFields.bind(this)"
+>
+  <po-table
+    id="tableProdutividade"
+    p-container="true"
+    [p-height]="450"
+    [p-infinite-scroll]="true"
+    [p-hide-text-overflow]="false"
+    [p-sort]="true"
+    [p-striped]="true"
+    [p-actions]="actionsTable"
+    [p-columns]="columns"
+    (p-change-visible-columns)="changeColumnVisible($event)"
+    (p-restore-column-manager)="restoreColumn()"
+    [p-items]="produtividade"
+    (p-show-more)="showMore($event)"
+    [p-loading]="loadingTable"
+    [p-loading-show-more]="loadingShowMore"
+    [p-show-more-disabled]="showMoreDisabled"
+  >
+  </po-table>
+</po-page-dynamic-search>
+
+<po-modal #detalhesModal p-title="Detalhes das Vendas realizadas">
+Em Desenvolvimento...
+</po-modal>
+
+<po-modal
+  #configuracoes
+  p-title="Configurações"
+  [p-primary-action]="confirmar"
+  [p-secondary-action]="fechar"
+>
+  <po-dynamic-form
+    #dynamicForm
+    [p-value]="detalheConfig"
+    [p-validate-fields]="camposComValidacao"
+  >
+  </po-dynamic-form>
+</po-modal>

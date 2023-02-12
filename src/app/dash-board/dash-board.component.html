@@ -1,0 +1,86 @@
+<po-page-default>
+  <po-loading-overlay
+    [p-screen-lock]="bloqueiaComponente"
+    p-text="Atualizando DashBoard"
+    [hidden]="carregando"
+  >
+  </po-loading-overlay>
+  <po-container [p-height]="100" class="po-lg-12">
+    <po-input
+      class="po-lg-2"
+      formControlName="periodo"
+      (p-blur)="atualizarDash($event)"
+      (p-change)="atualizarDash($event)"
+      p-clean
+      name="teste_input"
+      p-icon="po-icon-calendar"
+      p-mask="999999"
+      [p-placeholder]="helpPesquisa"
+      p-label="Período"
+    >
+    </po-input>
+    <!--
+    <po-button
+      class="po-lg-2"
+      p-icon="po-icon-refresh"
+      p-label="Atualizar"
+      (p-click)="atualizarDash()"
+    ></po-button>
+    -->
+  </po-container>
+
+  <po-container class="po-lg-12">
+    <po-widget class="po-lg-2 po-mb-1" p-title="Total de Clientes (Meta)">
+      <div class="po-font-subtitle po-text-center">{{ totalClientes }}</div>
+    </po-widget>
+
+    <po-widget class="po-lg-2 po-mb-1" p-title="Clientes Positivados">
+      <div class="po-font-subtitle po-text-center">{{ totalPositivados }}</div>
+    </po-widget>
+
+    <po-widget
+      class="po-lg-2 po-mb-1"
+      p-title="Clientes NÃO Positivados"
+    >
+      <div class="po-font-subtitle po-text-center">{{ totalNPositivados }}</div>
+    </po-widget>
+
+    <po-widget class="po-lg-2 po-mb-1" p-title="Novos Clientes">
+      <div class="po-font-subtitle po-text-center">
+        {{ totalNovosClientes }}
+      </div>
+    </po-widget>
+    <po-widget class="po-lg-2 po-mb-1" p-title="Clientes Ativos">
+      <div class="po-font-subtitle po-text-center">
+        {{ totalClientesAtivos }}
+      </div>
+    </po-widget>
+    <po-widget class="po-lg-2 po-mb-1" p-title="Clientes Inativos">
+      <div class="po-font-subtitle po-text-center">
+        {{ totalClientesInativos }}
+      </div>
+    </po-widget>
+  </po-container>
+  <po-container class="po-lg-12">
+    <div class="po-lg-6">
+      <po-chart
+        class="po-lg-12 po-mt-2"
+        [p-title]="dashPositivados?.title"
+        [p-series]="dashPositivados?.series"
+        [p-type]="tipoPositivados"
+      >
+      </po-chart>
+    </div>
+    <div class="po-md-12 po-lg-6">
+      <po-chart
+        class="po-md-12 po-mt-2"
+        [p-title]="dashSupervisor?.title"
+        [p-height]="400"
+        [p-categories]="dashSupervisor?.categories"
+        [p-series]="dashSupervisor?.series"
+        [p-type]="tipoSupervisor"
+      >
+      </po-chart>
+    </div>
+  </po-container>
+</po-page-default>
