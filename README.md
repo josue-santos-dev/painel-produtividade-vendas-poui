@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://po-ui.io">
-    <img width="250" src="./docs/assets/po-logos/po_color_bg.svg">
+    <img width="250" src="./logo_poui_readme/po_color_bg.svg">
   </a>
 </p>
 
